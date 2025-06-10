@@ -38,8 +38,8 @@ Antes de ejecutar la aplicación, asegúrate de tener Ollama instalado:
 
 ## 🧠 Cómo Usarlo
 
-* **Haz clic en la mascota** para activar el reconocimiento de voz
-* **Habla en español** para interactuar con ella
+* **Haz clic en la mascota** para activar el recuadro de mensajes
+* **Escribe en español** para interactuar con ella
 * **Arrástrala** con el mouse para moverla por la pantalla
 * **Escribe “abrir \[programa/archivo]”** para ejecutar apps o archivos locales. Lista de [Comandos](https://github.com/smn1else/Blu3/blob/main/COMANDOS.md).
 

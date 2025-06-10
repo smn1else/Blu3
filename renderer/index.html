@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: wss:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self' https:; media-src 'self'">
+    <title>Shimeji Assistant</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="mascot">
+        <img id="mascot-img" src="assets/default-mascot.gif" alt="Mascot">
+    </div>
+    <div id="chat-bubble" style="display: none;">
+        <p id="chat-text"></p>
+    </div>
+    
+    <div id="input-container" style="display: none;">
+        <input type="text" id="text-input" placeholder="Escribe tu mensaje">
+        <button id="send-button">Enviar</button>
+    </div>
+
+    <script src="renderer.js"></script>
+</body>
+</html>

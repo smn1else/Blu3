@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    overflow: hidden;
+    background-color: transparent;
+    -webkit-app-region: no-drag;
+}
+
+#mascot {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-app-region: no-drag;
+}
+
+#mascot-img {
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: contain;
+    -webkit-app-region: no-drag;
+    -webkit-user-drag: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+#chat-bubble {
+    position: absolute;
+    bottom: 160px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    border: 2px solid #ccc;
+    border-radius: 0;
+    padding: 10px;
+    box-shadow:
+    2px 2px 0 #000,
+    4px 4px 0 #666;
+    max-width: 250px;
+    width: 80%;
+    text-align: center;
+    font-family: 'VT323', monospace;
+    font-size: 14px;
+    text-align: center;
+    -webkit-app-region: no-drag;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    z-index: 10;
+}
+
+#chat-bubble p {
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+#input-container {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    border: 2px solid #ccc;
+    border-radius: 0;
+    padding: 10px;
+    box-shadow:
+    2px 2px 0 #000,
+    4px 4px 0 #666;
+    width: 80%;
+    max-width: 300px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    -webkit-app-region: no-drag;
+    z-index: 5;
+}
+
+#text-input {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 0;
+    font-size: 14px;
+    margin-right: 5px;
+    font-family: 'VT323', monospace;
+    max-width: calc(100% - 80px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#send-button {
+    background-color: #1f2022;
+    color: white;
+    border: none;
+    border-radius: 0;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: 'VT323', monospace;
+}
+
+#send-button:hover {
+    background-color: #1f2022;
+}

@@ -90,6 +90,68 @@ ipcMain.on('user-input', async (event, message) => {
     const now = new Date();
     mainWindow.webContents.send('assistant-response', `Son las ${now.getHours()}:${now.getMinutes().toString().padStart(2, '0')} del ${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()}.`);
     return;
+  } else if (message.toLowerCase().startsWith("pon musica")) {
+    const songQuery = message.substring("pon musica".length).trim();
+    
+    if (songQuery) {
+      const encodedQuery = encodeURIComponent(songQuery);
+      const useSpotify = songQuery.toLowerCase().includes("spotify");
+      let cleanQuery = songQuery;
+      
+      if (useSpotify) {
+        cleanQuery = songQuery.replace(/spotify/gi, "").trim();
+      } else if (songQuery.toLowerCase().includes("youtube")) {
+        cleanQuery = songQuery.replace(/youtube/gi, "").trim();
+      }
+      
+      const cleanEncodedQuery = encodeURIComponent(cleanQuery);
+      
+      let musicUrl;
+      let platform;
+      
+      if (useSpotify) {
+        musicUrl = `https://open.spotify.com/search/${cleanEncodedQuery}`;
+        platform = "Spotify";
+      } else {
+        musicUrl = `https://music.youtube.com/search?q=${cleanEncodedQuery}`;
+        platform = "YouTube Music";
+      }
+      
+      shell.openExternal(musicUrl)
+        .then(() => {
+          mainWindow.webContents.send('assistant-response', `Buscando "${cleanQuery}" en ${platform}.`);
+        })
+        .catch(err => {
+          console.error(`Error al abrir ${platform}:`, err);
+          mainWindow.webContents.send('assistant-response', `Lo siento, no pude encontrar "${cleanQuery}" en ${platform}.`);
+        });
+      
+      return;
+    } else {
+      mainWindow.webContents.send('assistant-response', 'Por favor, especifica una canción para reproducir.');
+      return;
+    }
+  } else if (message.toLowerCase().startsWith("busca")) {
+    const searchQuery = message.substring("busca".length).trim();
+    
+    if (searchQuery) {
+      const encodedQuery = encodeURIComponent(searchQuery);
+      const searchUrl = `https://www.google.com/search?q=${encodedQuery}`;
+  
+      shell.openExternal(searchUrl)
+        .then(() => {
+          mainWindow.webContents.send('assistant-response', `Buscando "${searchQuery}" en Google...`);
+        })
+        .catch(err => {
+          console.error("Error al abrir el navegador:", err);
+          mainWindow.webContents.send('assistant-response', `Lo siento, no pude buscar "${searchQuery}".`);
+        });
+      
+      return;
+    } else {
+      mainWindow.webContents.send('assistant-response', 'Por favor, indica qué deseas buscar.');
+      return;
+    }
   }
   
   mainWindow.webContents.send('assistant-response', 'Pensando...');

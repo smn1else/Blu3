@@ -1,7 +1,4 @@
-# Asistente Shimeji con Integración de IA Local (Ollama)
-
-![Blu3 Logo](renderer/assets/icon.png)
-![Mascota De Ejemplo](renderer/assets/default-mascot.gif)
+# <img src="renderer/assets/icon.png" alt="Blu3 Logo" width="35"/> Asistente Shimeji con Integración de IA Local (Ollama)
 
 Una aplicación de asistente virtual con mascota de escritorio que utiliza inteligencia artificial local gracias a **Ollama**.
 

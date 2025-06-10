@@ -45,7 +45,7 @@ Antes de ejecutar la aplicación, asegúrate de tener Ollama instalado:
 
 ## 🔍 ¿Cómo Funciona?
 
-1. Utiliza la Web Speech API para reconocer tu voz
+1. Utiliza un cuadro de texto donde se introduce tu mensaje
 2. La entrada se envía a un modelo IA local mediante Ollama
 3. El asistente responde con texto y voz
 
